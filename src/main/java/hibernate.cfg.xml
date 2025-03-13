@@ -14,7 +14,7 @@
 		
 		
 	
-		 <mapping class="tw.house.model.House"/>
+		 <mapping class="com.model.House"/>
 		
 	</session-factory>
 </hibernate-configuration> 

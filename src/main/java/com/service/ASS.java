@@ -1,4 +1,4 @@
-package com.serive;
+package com.service;
 
 public class ASS {
 

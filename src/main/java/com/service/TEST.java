@@ -1,4 +1,4 @@
-package com.serive;
+package com.service;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
