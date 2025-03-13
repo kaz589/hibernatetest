@@ -16,6 +16,7 @@
     │   │   │       ├── repository/       # 資料訪問層（Repository/DAO）
     │   │   │       ├── model/            # 資料模型層（Model/Entity）
     │   │   │       └── config/           # 配置類
+    │   │   │       └── util/             # 工具類
     │   │   ├── webapp/
     │   │   │   ├── static/                       # 靜態資源（CSS、JS、圖片等）
     │   │   │   │   ├── frontend/                 # 前台靜態資源
