@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <title>機場管理系統</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      body {
+        font-size: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      header {
+        background-color: black;
+        color: lightgreen;
+        padding: 20px;
+        text-align: center;
+      }
+      .centered-form {
+        display: flex; /* 使用 Flexbox */
+
+        justify-content: center; /* 水平置中 */
+        gap: 10px; /* 元素之間的間距 */
+      }
+      i {
+        margin-right: 5px;
+      }
+      dialog {
+        border: none;
+        border-radius: 8px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+      button {
+        background-color: rgb(0, 127, 255); /* 按鈕背景色 */
+        color: white; /* 按鈕文字顏色 */
+        padding: 10px 15px; /* 按鈕內邊距 */
+        text-align: center; /* 文字置中 */
+        text-decoration: none; /* 移除下劃線 */
+        display: inline-block; /* 使按鈕成為行內區塊 */
+        font-size: 14px; /* 字體大小 */
+        margin: 4px 2px; /* 按鈕邊距 */
+
+        cursor: pointer; /* 游標樣式 */
+        border: none; /* 移除邊框 */
+        border-radius: 5px; /* 按鈕圓角 */
+        transition: background-color 0.3s ease; /* 背景顏色過渡效果 */
+      }
+      button:hover {
+        background-color: rgb(170, 212, 105); /* 懸停時的背景顏色 */
+        color: black;
+      }
+
+      button:active {
+        transform: translateY(2px); /* 按下時略微移動 */
+      }
+
+
+
+      .container {
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+      }
+      table {
+        border-collapse: collapse; /* 合并边框 */
+        width: auto; /* 表格宽度自动适应内容 */
+        table-layout: auto; /* 表格布局模式为自动 */
+        margin: 0 auto; /* 水平居中 */
+      }
+
+      th {
+        border: 1px solid black; /* 单元格的边框 */
+        text-align: center; /* 内容居中对齐 */
+        padding: 8px; /* 内边距 */
+      }
+      td {
+        text-align: left;
+        border: 1px solid black; /* 单元格的边框 */
+        padding: 8px; /* 内边距 */
+      }
+
+      .mark {
+        background: #ffc600;
+      }
+      .drop {
+        position: relative;
+        display: block;
+        width: 20%;
+        margin: 0 0 10px;
+        &:hover {
+          .dropOption {
+            display: block;
+          }
+        }
+        &:hover {
+          .dropdown {
+            display: block;
+          }
+        }
+        &:hover {
+          .dropdown.close {
+            display: none;
+          }
+        }
+        .searchcity {
+          width: 100%; /* 寬度為父容器的 100% */
+          padding: 10px; /* 內邊距 */
+
+          box-sizing: border-box; /* 包含內邊距和邊框在內的總寬度 */
+        }
+        .searchcountry {
+          width: 100%; /* 寬度為父容器的 100% */
+          padding: 10px; /* 內邊距 */
+
+          box-sizing: border-box; /* 包含內邊距和邊框在內的總寬度 */
+        }
+        .dropOption {
+          position: relative;
+          width: auto;
+          color: #666;
+          font-size: 20px;
+          background-color: #fff;
+          padding: 10px;
+          border: 1px solid #888;
+          border-radius: 5px;
+          box-sizing: border-box;
+          cursor: pointer;
+        }
+        .dropdown {
+          display: none;
+          width: 100%;
+          max-height: 350px;
+          position: absolute;
+          color: #333;
+          padding: 0;
+          margin: 0;
+          background-color: #f9f9f9;
+          box-shadow: 0px 2px 3px 0px #ccc;
+          border-radius: 6px;
+          box-sizing: border-box;
+          overflow: auto;
+          z-index: 10;
+          > li {
+            display: block;
+            color: #000;
+            padding: 12px;
+            font-size: 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            &:first-child {
+              margin: 10px;
+            }
+            &:last-child {
+              margin-bottom: 10px;
+            }
+            &:hover {
+              background-color: blue;
+              border-radius: 6px;
+            }
+          }
+          &::-webkit-scrollbar {
+            width: 15px;
+          }
+          &::-webkit-scrollbar-track {
+            background-color: #eee;
+            border-radius: 6px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: orange;
+            border-radius: 15px;
+          }
+          &::-webkit-scrollbar-button {
+            background-color: #f9f9f9;
+          }
+        }
+      }
+      .sidebar {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        padding-top: 20px;
+      }
+    </style>
+    <script>
+      function loadNav() {
+        fetch("navtest.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("nav").innerHTML = data;
+          });
+      }
+    </script>
+  </head>
+  <body onload="loadNav()">
+    <div id="nav"></div>
+    <div class="container">
+      <form class="centered-form">
+        <div class="drop">
+          <div class="dropOption">
+            <input type="search" class="searchcity" placeholder="請選擇城市" />
+          </div>
+          <ul class="dropdown" id="dropdowncity">
+            <li>12</li>
+          </ul>
+        </div>
+
+        <br />
+
+        <div class="drop">
+          <div class="dropOption">
+            <input
+              type="search"
+              class="searchcountry"
+              placeholder="請選擇國家"
+            />
+          </div>
+          <ul class="dropdown" id="dropdowncountry">
+            <li>12</li>
+          </ul>
+        </div>
+
+        <button type="button" id="addAirportButton">
+          <i class="fa-solid fa-plus fa-1x"></i>新增機場
+        </button>
+        <button type="button" id="seach" class="submit-button">
+          <i class="fa-solid fa-magnifying-glass fa-1x"></i>搜尋機場
+        </button>
+      </form>
+
+      <div class="container">
+        <table id="airportTable">
+          <thead>
+            <tr>
+              <th>機場 ID</th>
+              <th>機場代碼</th>
+              <th>機場名稱</th>
+              <th>城市</th>
+              <th>國家</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 新增的行將會在這裡插入 -->
+          </tbody>
+        </table>
+
+        <dialog id="airportDialog">
+          <form id="airportForm">
+            <label
+              >機場 ID: <input type="text" name="airportsId" required /></label
+            ><br />
+            <label
+              >機場代碼: <input type="text" name="iataCode" required /></label
+            ><br />
+            <label
+              >機場名稱:
+              <input type="text" name="airportName" required /></label
+            ><br />
+            <label>城市: <div class="drop">
+              <div class="dropOption">
+                <input type="search" class="searchcity" placeholder="請選擇城市" />
+              </div>
+              <ul class="dropdown" id="dropdowncity">
+                <li>12</li>
+              </ul>
+            </div></label
+            ><br />
+            <label
+              >國家: <input type="text" name="countryRegion" required /></label
+            ><br />
+
+            <input type="submit" value="確定" />
+            <button type="button" id="closeDialogButton">取消</button>
+          </form>
+        </dialog>
+      </div>
+    </div>
+    <script>
+      const airportTableBody = $("tbody")[0];
+      const allairport = [];
+
+      const suggestionscountry = document.querySelector("#dropdowncountry");
+      const suggestionscity = document.querySelector("#dropdowncity");
+
+      
+
+      $("#addAirportButton").click(openAddDialog);
+      $("#seach").click(fetchallAirports);
+
+$('#closeDialogButton').click(function () { 
+  
+  
+  $('#airportDialog')[0].close(); // 正確關閉對話框
+  
+});
+    
+      $searchcity = $(".searchcity");
+      $("#dropdowncity").on("click", "li", function (e) {
+        const selectedText = $(this).text().trim(); // 獲取被點擊的 li 文字
+        $(".searchcity").val(this.textContent.trim());
+        
+
+        //$(".searchcity").val(selectedText); // 將文字放入輸入框
+      });
+      $("#dropdowncountry").on("click", "li", function () {
+        const selectedText = $(this).text().trim(); // 獲取被點擊的 li 文字
+
+        $(".searchcountry").val(selectedText); // 將文字放入輸入框
+      });
+
+      //初始取得全部機場資料供搜尋
+      axios
+        .get("../servlet1", { params: { action: "getall" } })
+        .then((response) => {
+          allairport.push(...response.data.result);
+        })
+        .catch((error) => console.error("獲取機場資料失敗:", error));
+
+      // 修改 findMatches 函數以支持城市和國家
+      function findMatches(wordToMatch, airporties, type) {
+        const regex = new RegExp(wordToMatch, "gi"); // 建立正則表達式
+        return airporties.filter((place) => {
+          return place[type].match(regex); // 根據指定類型進行匹配
+        });
+      }
+
+      //將匹配機場放入下拉選單
+      function displayMatches(value, type) {
+        const matchArray = findMatches(value, allairport, type);
+
+        const html = matchArray
+          .map((place) => {
+            const regex = new RegExp(value, "gi");
+          
+
+            return `
+                    <li>
+                        <span class="name">${place[type]}</span>
+                    </li>
+                    `;
+          })
+          .join("");
+
+        // 根據類型選擇正確的下拉選單
+        if (type === "City") {
+          suggestionscity.innerHTML = html;
+        } else if (type === "CountryRegion") {
+          suggestionscountry.innerHTML = html;
+        }
+      }
+
+      // 獲取機場資料
+      function fetchallAirports() {
+        axios
+          .get("../servlet1", { params: { action: "getall" } }) // 加入 action 參數
+          .then((response) => {
+            const airports = response.data.result;
+            airportTableBody.innerHTML = ""; // 清空表格
+            allairport.push(...response.data.result);
+
+            airports.forEach((airport) => {
+              const newRow = airportTableBody.insertRow();
+              newRow.insertCell(0).textContent = airport.AirportsId;
+              newRow.insertCell(1).textContent = airport.AirportName;
+              newRow.insertCell(2).textContent = airport.IataCode;
+              newRow.insertCell(3).textContent = airport.City;
+              newRow.insertCell(4).textContent = airport.CountryRegion;
+
+              // 操作按鈕
+              const actionsCell = newRow.insertCell(5);
+              const editButton = document.createElement("button");
+              editButton.textContent = "編輯";
+              editButton.onclick = () => openEditDialog(airport);
+              actionsCell.appendChild(editButton);
+              const deleteButton = document.createElement("button");
+              deleteButton.textContent = "刪除";
+              console.log(airport);
+            
+              deleteButton.onclick = () => deleteAirport(airport.AirportsId);
+              actionsCell.appendChild(deleteButton);
+            });
+          })
+          .catch((error) => console.error("獲取機場資料失敗:", error));
+      }
+
+      // 開啟新增機場對話框
+      function openAddDialog() {
+        document.getElementById("airportDialog").showModal();
+        document.getElementById("airportForm").reset(); // 重置表單
+      }
+
+      // 新增機場
+      document
+        .getElementById("airportForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // 防止表單默認提交
+
+          const formData = new FormData(this);
+          const newAirport = {
+            IataCode: formData.get("iataCode"),
+            AirportName: formData.get("airportName"),
+            CountryRegion: formData.get("countryRegion"),
+          };
+
+          axios
+          .get("../servlet1", { action: "insert", airport: newAirport })
+            .then((response) => {
+              if (response.data.success) {
+                fetchallAirports(); // 重新獲取機場資料
+                document.getElementById("airportDialog").close(); // 關閉對話框
+              } else {
+                alert("新增機場失敗: " + response.data.message);
+              }
+            })
+            .catch((error) => console.error("新增機場失敗:", error));
+        });
+      function openEditDialog(airport) {
+        // 獲取對話框和表單元素
+        const dialog = document.getElementById("airportDialog");
+        const form = document.getElementById("airportForm");
+
+        // 填充表單
+        form.airportsId.value = airport.AirportsId;
+        form.airportsId.readOnly = true; // 設置為不可編輯
+        form.iataCode.value = airport.IataCode;
+        form.airportName.value = airport.AirportName;
+        form.city.value = airport.City;
+        form.countryRegion.value = airport.CountryRegion;
+
+        // 顯示對話框
+        dialog.showModal();
+      }
+      // 刪除機場
+      function deleteAirport(airportId) {
+      console.log(airportId);
+      console.log('123');
+      
+        if (confirm("確定要刪除這個機場嗎？")) {
+          axios
+         
+          .get("../servlet1", { params: { action: "delete", airportsId: airportId } })
+            .then((response) => {
+              if (response.data.success) {
+                fetchallAirports(); // 重新獲取機場資料
+              } else {
+                alert("刪除機場失敗: " + response.data.message);
+              }
+            })
+            .catch((error) => console.error("刪除機場失敗:", error));
+        }
+      }
+      function setupDropdowns() {
+        const searchcityInput = document.querySelector(".searchcity");
+        const searchcountryInput = document.querySelector(".searchcountry");
+
+        searchcityInput.addEventListener("change", (event) => {
+          displayMatches(event.target.value, "City");
+        });
+
+        searchcityInput.addEventListener("keyup", (event) => {
+          displayMatches(event.target.value, "City");
+        });
+
+        searchcountryInput.addEventListener("change", (event) => {
+          displayMatches(event.target.value, "CountryRegion");
+        });
+
+        searchcountryInput.addEventListener("keyup", (event) => {
+          displayMatches(event.target.value, "CountryRegion");
+        });
+      }
+      // 在 DOM 加載後設置下拉選單
+      document.addEventListener("DOMContentLoaded", setupDropdowns);
+    </script>
+  </body>
+</html>
