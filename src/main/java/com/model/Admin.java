@@ -39,6 +39,21 @@ public class Admin {
 	public Admin() {
 		super();
 	}
+	
+	
+
+	public Admin(String full_name, String username, String password, String email, String phone_number,
+			Date registration_date) {
+		super();
+		this.full_name = full_name;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.phone_number = phone_number;
+		this.registration_date = registration_date;
+	}
+
+
 
 	public Integer getAdmin_id() {
 		return admin_id;
