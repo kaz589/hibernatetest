@@ -15,7 +15,7 @@ import jakarta.servlet.annotation.WebFilter;
 @WebFilter(urlPatterns = "/*")
 public class OpenSessionViewFilter implements Filter {
 
-	@Override
+	@Override	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		SessionFactory factory = HibernateUtil.getSessionFactory();

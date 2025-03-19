@@ -33,7 +33,7 @@ public class AirportsDao {
   		 
   		ArrayList<Airports> airportsList = new ArrayList<>();
   		 // 動態構建 HQL 查詢
-        StringBuilder hql = new StringBuilder("FROM AirportsBean WHERE 1=1");
+        StringBuilder hql = new StringBuilder("FROM Airports WHERE 1=1");
         List<Object> parameters = new ArrayList<>();
 
         if (keyword != null && !keyword.trim().isEmpty()) {
