@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Management</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- import  Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- import  jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- import  jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <!-- import  Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <!-- FontAwesome 6.6.0 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <!-- import  Flatpickr CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css" />
+    <!-- import customed  CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="header-section text-white rounded-top">
+      <a href="FlightManagement.html" id="logo" style="display: inline-block">
+        <h1 class="text-left mb-4">
+          <i class="fa-solid fa-plane-departure"></i> Flight Management
+        </h1>
+      </a>
+      <div class="container-fluid" id="form-area">
+        <div class="row mb-4">
+          <div class="col-6 d-flex justify-content-center">
+            <div class="form-floating w-50">
+              <input
+                type="text"
+                class="form-control"
+                id="flightNumber"
+                placeholder="Flight Number" />
+              <label for="flightNumber">Flight Number</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-6 d-flex justify-content-center">
+            <div class="form-floating w-50">
+              <input
+                type="text"
+                class="form-control"
+                id="airlineName"
+                placeholder="Airline Name" />
+              <label for="airlineName">Airline Name</label>
+            </div>
+          </div>
+
+          <div class="col-6 d-flex justify-content-center">
+            <div class="form-floating w-50">
+              <input
+                type="text"
+                class="form-control"
+                id="aircraftCode"
+                placeholder="Aircraft Code" />
+              <label for="aircraftCode">Aircraft Code</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-6 d-flex justify-content-center">
+            <div class="form-floating w-50">
+              <input
+                type="text"
+                class="form-control"
+                id="originName"
+                placeholder="Origin Name" />
+              <label for="originName">Origin Name</label>
+            </div>
+          </div>
+
+          <div class="col-6 d-flex justify-content-center">
+            <div class="form-floating w-50">
+              <input
+                type="text"
+                class="form-control"
+                id="destinationName"
+                placeholder="Destination Name" />
+              <label for="destinationName">Destination Name</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-6 d-flex justify-content-center">
+            <div class="form-floating w-50">
+              <input
+                type="text"
+                class="form-control datepicker"
+                id="departureTime"
+                placeholder="Departure Time" />
+              <label for="departureTime">Departure Time</label>
+            </div>
+          </div>
+
+          <div class="col-6 d-flex justify-content-center">
+            <div class="form-floating w-50 arrival-container">
+              <input
+                type="text"
+                class="form-control datepicker arrivalpickr"
+                id="arrivalTime"
+                placeholder="Arrival Time" />
+              <label for="arrivalTime">Arrival Time</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-6 d-flex justify-content-center align-items-stretch">
+            <button class="btn btn-primary w-50" id="save-btn" data-flight>
+              Save Flight
+            </button>
+          </div>
+
+          <div class="col-6 d-flex justify-content-center align-items-stretch">
+            <button
+              class="btn btn-secondary w-50"
+              id="home-btn"
+              onclick="window.location.href='FlightManagement.html'">
+              Back to Home
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="javascript/script.js"></script>
+    <script src="javascript/editFlight.js"></script>
+    <script src="javascript/calendar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <div>
+        <a href="#">Help</a>
+        <a href="#">Log in</a>
+        <a href="#">Privacy Settings</a>
+      </div>
+      <div>
+        <a href="#">Trips</a>
+        <a href="#">Explore</a>
+        <a href="#">Partners</a>
+      </div>
+      <div>
+        <a href="#">Cookie policy</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Manage all the flights with a better view!</p>
+      <p>&copy; Flight Management 2024 - 2025</p>
+    </div>
+  </footer>
+</html>

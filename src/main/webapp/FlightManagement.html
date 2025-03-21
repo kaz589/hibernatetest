@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Management</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- import  Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- import  jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- import  jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <!-- import  Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <!-- FontAwesome 6.6.0 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <!-- import  Flatpickr CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <!-- import customed  CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="header-section">
+      <a href="FlightManagement.html" id="logo" style="display: inline-block">
+        <h1 class="text-left mb-4">
+          <i class="fa-solid fa-plane-departure"></i> Flight Management
+        </h1>
+      </a>
+
+      <div class="row gx-1" id="search-bar">
+        <div class="col-12 col-md-6 col-lg-2">
+          <div
+            class="form-floating d-flex justify-content-end align-items-center position-relative"
+            id="switch-control">
+            <input
+              type="text"
+              class="form-control left-col"
+              id="originName"
+              placeholder="Enter departure city"
+              autocomplete="off" />
+            <label for="originName">From</label>
+            <button
+              type="button"
+              class="btn btn-light d-flex align-items-center justify-content-center position-absolute"
+              id="switch">
+              <i class="fa-solid fa-arrow-right-arrow-left"></i>
+            </button>
+            <ul
+              id="originSuggestions"
+              class="list-group position-absolute"></ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-2">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control mid-col ps-4"
+              id="destinationName"
+              placeholder="Enter destination city"
+              autocomplete="off" />
+            <label for="destinationName" class="ps-4" id="arrival-label"
+              >To</label
+            >
+            <ul
+              id="destinationSuggestions"
+              class="list-group position-absolute"></ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-2">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control mid-col departure-date"
+              id="departureTime"
+              placeholder="Select departure time" />
+            <label for="departureTime">Departure</label>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-2">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control mid-col arrival-date"
+              id="arrivalTime"
+              placeholder="Select arrival time" />
+            <label for="arrivalTime">Arrival</label>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-2">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control right-col"
+              id="flightNumber"
+              placeholder="Enter flight number" />
+            <label for="flightNumber">Flight Number</label>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-2 d-flex">
+          <button type="button" class="btn btn-primary" id="search-btn">
+            Search
+          </button>
+          <a href="../UpdateFlight.html"
+            ><button type="button" class="btn btn-secondary" id="add-btn">
+              Add flight
+            </button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" id="flightsContainer"></div>
+
+    <script src="javascript/script.js"></script>
+    <script src="javascript/calendar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <div>
+        <a href="#">Help</a>
+        <a href="#">Log in</a>
+        <a href="#">Privacy Settings</a>
+      </div>
+      <div>
+        <a href="#">Trips</a>
+        <a href="#">Explore</a>
+        <a href="#">Partners</a>
+      </div>
+      <div>
+        <a href="#">Cookie policy</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Manage all the flights with a better view!</p>
+      <p>&copy; Flight Management 2024 - 2025</p>
+    </div>
+  </footer>
+</html>
