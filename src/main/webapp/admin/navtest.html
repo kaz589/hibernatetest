@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>側邊導覽列範例</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .sidebar {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        padding-top: 20px;
+      }
+      .sidebar a {
+        padding: 15px 20px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+      }
+      .sidebar a:hover {
+        background-color: #575757;
+      }
+      .content {
+        margin-left: 260px; /* 留出側邊欄的空間 */
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <a href="http://localhost:8080/FlightTicketingSystem/admin/MemberHomePage.jsp">會員管理</a>
+      <a href="#">航線管理</a>
+      <a href="http://localhost:8080/FlightTicketingSystem/admin/airport_edit.html">機場管理</a>
+      <a href="http://localhost:8080/FlightTicketingSystem/RedeemHomePage.jsp">贈品管理</a>
+      <a href="http://localhost:8080/FlightTicketingSystem/LogOut">登出</a>
+    </div>
+
+   
+  </body>
+</html>
