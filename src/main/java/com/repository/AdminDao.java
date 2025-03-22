@@ -1,8 +1,10 @@
 package com.repository;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import com.model.Admin;
 
@@ -20,6 +22,15 @@ public class AdminDao {
 		session.persist(insertAdmin);
 		return insertAdmin;
 	}
+	
+	public String getPassword(String username) {
+		String hql = "Select password From Admin WHERE username=:username";
+		Query<String> query = session.createQuery(hql); 
+		query.setParameter("username", username);
+		String password_search= query.uniqueResult();
+		return password_search;
+	}
+	
 	
 	
 }

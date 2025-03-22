@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>新增會員資料</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 50px;
+        color: #4CAF50;
+    }
+
+    form {
+        width: 60%;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input[type="text"], input[type="checkbox"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0 20px 0;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    input[type="checkbox"] {
+        width: auto;
+        margin-right: 10px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 15px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+    }
+</style>
+</head>
+<body>
+
+<h2>新增會員資料</h2>
+
+<form method="post" action="../InsertMember">
+    <div class="form-group">
+        <label for="full_name">新增會員姓名:</label>
+        <input type="text" id="full_name" name="full_name" required />
+    </div>
+    
+    <div class="form-group">
+        <label for="username">新增會員使用者名稱:</label>
+        <input type="text" id="username" name="username" required />
+    </div>
+
+    <div class="form-group">
+        <label for="password">新增加密後的會員密碼:</label>
+        <input type="text" id="password" name="password" required />
+    </div>
+
+    <div class="form-group">
+        <label for="email">新增會員電子郵件:</label>
+        <input type="email" id="email" name="email" required />
+    </div>
+
+    <div class="form-group">
+        <label for="total_miles">新增可用里程:</label>
+        <input type="text" id="total_miles" name="total_miles" required />
+    </div>
+
+    <div class="form-group">
+        <label for="phone_number">新增會員電話號碼:</label>
+        <input type="text" id="phone_number" name="phone_number" required pattern="^09\d{8}$" title="電話號碼必須以09開頭並且為10位數字"/>
+    </div>
+
+    <div class="form-group">
+        <label for="registration_date">新增會員註冊時間:</label>
+        <input type="date" id="registration_date" name="registration_date" required />
+    </div>
+
+    <div class="form-group">
+        <label for="membership_level">新增會員等級:</label>
+        <select id="membership_level" name="membership_level" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    </div>
+
+	<div class="form-group checkbox-group">
+	    <input type="checkbox" id="email_verified" name="email_verified" />
+	    <label for="email_verified">新增郵件是否驗證</label>
+	</div>
+
+	<div class="form-group checkbox-group">
+        <input type="checkbox" id="phone_verified" name="phone_verified" />
+        <label for="phone_verified">新增電話是否驗證</label>
+    </div>
+
+    <input type="submit" value="確定" />
+</form>
+
+</body>
+</html>
+

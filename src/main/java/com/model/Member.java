@@ -51,6 +51,27 @@ public class Member {
 	public Member() {
 	}
 
+	
+	
+
+	public Member(String full_name, String username, String password, String email, Integer total_miles,
+			String phone_number, Date registration_date, boolean email_verified, boolean phone_verified,
+			String membership_level) {
+		super();
+		this.full_name = full_name;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.total_miles = total_miles;
+		this.phone_number = phone_number;
+		this.registration_date = registration_date;
+		this.email_verified = email_verified;
+		this.phone_verified = phone_verified;
+		this.membership_level = membership_level;
+	}
+
+
+
 
 	public Integer getMember_id() {
 		return member_id;
