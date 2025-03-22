@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
+
+.dm-serif-text-regular {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-serif-text-regular-italic {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+html {
+  height: 100%;
+  background-color: #05203c;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+}
+
+.header-section {
+  padding: 25px 10%;
+  overflow: visible;
+  box-sizing: border-box;
+  background-color: #05203c;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+#logo:hover {
+  opacity: 0.8;
+}
+
+.nav-button {
+  display: inline-block;
+  width: 6.5em;
+  height: 2.25em;
+  justify-content: center;
+  text-align: center;
+  border-radius: 8em !important;
+  margin-inline-end: .5rem;
+  background-color: #05203c;
+  color: #ffffff;
+  border: 1px solid #d3d3d3;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-button.active {
+  background-color: #154679 !important;
+  color: white !important;
+  border-color: #154679 !important;
+}
+
+.nav-button:hover {
+  background-color: #154679;
+  color: #ffffff;
+}
+
+.nav-button:focus {
+  background-color: #154679;
+  color: #ffffff;
+  border-color: #154679;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(21, 71, 121, 0.5);
+}
+
+.nav-button:not(:focus) {
+  background-color: #05203c !important;
+  color: #ffffff !important;
+  border-color: #d3d3d3 !important;
+}
+
+h1 {
+  font-family: "DM Serif Text", serif;
+  color: #ffffff;
+}
+
+#search-bar {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.list-group {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  z-index: 1050;
+  background: white;
+  border: 1px solid #ddd;
+  max-height: 250px;
+  width: 200%;
+  overflow-y: auto;
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-group-item {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.list-group-item:hover,
+.list-group-item.active {
+  color: #000000;
+  border-color: #ffffff;
+  background-color: #eff3f8;
+}
+
+.flatpickr-calendar {
+  background-color: white;
+  color: #05203c;
+  font-family: Helvetica, sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.flatpickr-day {
+  background-color: white;
+  color: #05203c;
+  font-family: Helvetica, sans-serif;
+  border-radius: 50%;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.departure-day,
+.arrival-day {
+  background-color: #05203c !important;
+  color: white !important;
+}
+
+.flatpickr-day:hover {
+  background-color: #05203c !important;
+  color: white !important;
+}
+
+.range-day {
+  background-color: #1a3a5e !important;
+  color: white !important;
+}
+
+.flatpickr-current-month,
+.flatpickr-weekdays {
+  color: #05203c;
+}
+
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  color: #05203c;
+}
+
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:hover {
+  color: #2196f3;
+}
+
+#arrival-label {
+  background-color: transparent !important;
+  z-index: 1;
+}
+
+.left-col {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px 0 0 4px !important;
+}
+
+.mid-col {
+  width: 100%;
+  height: 40px;
+  border-radius: 0 !important;
+}
+
+.right-col {
+  width: 100%;
+  height: 40px;
+  border-radius: 0 4px 4px 0 !important;
+}
+
+label {
+  font-size: 12px;
+  color: #666;
+}
+
+.position-relative {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#switch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid #05203c;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  margin-right: -1em;
+  z-index: 2;
+}
+
+.dropdown-menu {
+  width: 300px;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+#search-btn,
+#add-btn {
+  height: 58px;
+  padding-inline: 3rem;
+  white-space: nowrap;
+}
+
+#search-btn {
+  margin-right: 0.1rem !important;
+}
+
+#add-btn {
+  margin-left: 0.1rem !important;
+}
+#flightsContainer {
+  display: none;
+  background-color: white;
+  padding: 0 10%;
+  border-radius: 8px;
+  margin: 25px 0 0 0;
+}
+
+.card {
+  position: relative;
+  background-color: white;
+  margin: 0;
+  border-radius: 8px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 83%;
+  width: 1px;
+  height: 100%;
+  background-color: lightgray;
+}
+
+.col-12 {
+  padding: 0;
+  margin: 0.1em;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+p {
+  margin: 0;
+}
+
+.card-text p {
+  margin-bottom: 0.25rem;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+}
+
+.edit-btn {
+  padding: 0 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /*grid-template-columns: 500px 300px 1fr;*/
+  gap: 10px;
+  align-items: start;
+  width: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) auto;
+  gap: 20px;
+  align-items: start;
+}
+
+.col-1,
+.col-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.col-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.col-1 p,
+.col-2 p {
+  white-space: normal;
+  word-break: break-word;
+  min-width: 200px;
+}
+
+#save-btn,
+#home-btn {
+  height: 58px;
+}
+
+.footer {
+  background: #05203c;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+.region-selector {
+  background: #1c3556;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 250px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.footer-links div {
+  display: flex;
+  flex-direction: column;
+}
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 5px 0;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+}
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+}

@@ -17,6 +17,9 @@
 		 <mapping class="com.model.House"/>
 		 <mapping class="com.model.Admin"/>
 		 <mapping class="com.model.Member"/>
+		 <mapping class="com.model.Airport"/>
+		 <mapping class="com.model.Flight"/>
+		 
 		
 	</session-factory>
 </hibernate-configuration> 
