@@ -46,6 +46,8 @@ public class DemoHouseServletAction extends HttpServlet {
 		Session session = factory.getCurrentSession();
 		
 		HouseService hService = new HouseService(session);
+		hService.insert(new House("123"));
+		
 		House resultBean = hService.selectById(1000);
 		
 		if(resultBean!=null) {

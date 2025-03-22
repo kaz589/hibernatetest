@@ -13,7 +13,7 @@
 		<property name="hibernate.current_session_context_class">thread</property>
 		
 		
-	
+	 	<mapping class="com.model.Airports"/>
 		 <mapping class="com.model.House"/>
 		 <mapping class="com.model.Admin"/>
 		 <mapping class="com.model.Member"/>

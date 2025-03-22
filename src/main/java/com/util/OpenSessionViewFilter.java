@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpSession;
 @WebFilter(urlPatterns = "/*",filterName = "B")
 public class OpenSessionViewFilter implements Filter {
 
-	@Override
+	@Override	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		SessionFactory factory = HibernateUtil.getSessionFactory();
