@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>資料取得失敗</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body >
   
@@ -18,7 +18,7 @@
 				
 			<h3>無法取得商品資料，請確認是否正確輸入。</h3>
 	
-		<a href="RedeemHomePage.jsp">回到首頁</a>
+		<a href="/Products/RedeemHomePage.jsp">回到首頁</a>
 		
 	</div>
 	</div>

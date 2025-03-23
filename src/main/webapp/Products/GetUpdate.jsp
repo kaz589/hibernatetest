@@ -42,7 +42,7 @@
                             <%= product.getProduct_image() %>
                 </table>
             </div>	
-			<form method="post" action="UpdateById">
+			<form method="post" action="../UpdateById">
 				帶入商品編號：<input type="text" readonly name="product_id" placeholder="(系統帶入編號)<%=product.getProduct_id() %>"value="<%=product.getProduct_id() %>"/><br>
 				輸入類別編號：<input  type="text" name="category_id" value=" <%= product.getCategory_id() %>"/><br>
 				輸入商品名稱：<input type="text" name="product_name" value="<%= product.getProduct_name() %>"/><br>

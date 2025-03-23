@@ -12,9 +12,9 @@
 
 
 	<div class="content">
-<h2>新增資料</h2>
+	<h2>新增資料</h2>
 
-<form method="post" action="InsertProduct">
+<form method="post" action=".//InsertProduct">
 
 	輸入類別編號：<input type="text" name="category_id" /><br>
 	輸入商品名稱：<input type="text" name="product_name" /><br>
