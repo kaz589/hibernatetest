@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import com.model.House;
+
 import com.model.Member;
 import com.repository.MemberDao;
 

@@ -8,7 +8,7 @@ import org.hibernate.Session;
 
 import com.model.Airports;
 import com.repository.AirportsDao;
-import com.repository.HouseDao;
+
 
 public class AirportsService {
 	private AirportsDao airportsDao;

@@ -61,4 +61,11 @@ public class ProductsDao implements IProductsDao {
 		return false;
 	}
 
+	@Override
+	public List<ProductsBean> getByName(String product_name) {
+		Query<ProductsBean> query = session.createQuery( "FROM ProductsBean WHERE product_name LIKE :productName", ProductsBean.class);
+		query.setParameter("productName", "%" + product_name + "%");
+		return query.list();
+	}
+
 }

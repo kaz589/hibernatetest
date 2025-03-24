@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import com.model.Airports;
-import com.model.House;
+
 import com.util.HibernateUtil;
 
 import jakarta.transaction.Transaction;

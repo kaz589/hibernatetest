@@ -12,13 +12,16 @@
 		<property name="hibernate.format_sql">true</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 		
-		
+		<mapping class="com.model.ProductsBean"/>
 	 	<mapping class="com.model.Airports"/>
-		 <mapping class="com.model.House"/>
+		 
 		 <mapping class="com.model.Admin"/>
 		 <mapping class="com.model.Member"/>
 		 <mapping class="com.model.Airport"/>
 		 <mapping class="com.model.Flight"/>
+		 <mapping class="com.model.CategoryBean"/>
+		  
+		 
 		 
 		
 	</session-factory>

@@ -36,4 +36,9 @@ public class ProductsService  {
 		return productsDao.deleteById(product_id);
 	}
 
+	public  List<ProductsBean> getByname(String product_name){
+		return productsDao.getByName(product_name);
+	}
+
+
 }
