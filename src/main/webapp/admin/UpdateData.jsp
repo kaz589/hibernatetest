@@ -19,8 +19,8 @@
 	<tr><td>輸入修改會員電子郵件<td><input type="email" value="<%=member.getEmail() %>" name="email">
 	<tr><td>輸入修改可用里程<td><input type="text" value="<%=member.getTotal_miles() %>" name="total_miles">
 	<tr><td>輸入修改會員電話號碼<td><input type="text" value="<%=member.getPhone_number() %>" name="phone_number">
-	<tr><td>輸入修改註冊時間<td><input type="date" value="<%=member.getRegistration_date() %>" name="registration_date">
-	<tr><td>輸入修改會員等級<td><input type="text" value="<%=member.getMembership_level() %>" name="membership_level">
+	<tr><td>輸入修改註冊時間<td><input type="date" value="<%=member.getRegistration_date() %>" required name="registration_date">
+	<tr><td>輸入修改會員等級<td><input type="text" value="<%=member.getMembership_level() %>"  name="membership_level">
 	<tr><td>輸入修改郵件是否驗證<td><input type="checkbox" value="<%=member.isEmail_verified() %>" name="email_verified">
 	<tr><td>輸入修改電話是否驗證<td><input type="checkbox" value="<%=member.isPhone_verified() %>" name="phone_verified">
 	<input type="submit" value="確定" />

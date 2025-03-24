@@ -16,7 +16,6 @@ import javax.sql.DataSource;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import com.model.House;
 import com.model.Member;
 
 public class MemberDao {

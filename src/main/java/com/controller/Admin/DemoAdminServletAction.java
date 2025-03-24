@@ -7,9 +7,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import com.model.Admin;
-import com.model.House;
+
 import com.service.AdminService;
-import com.service.HouseService;
+
 import com.util.HibernateUtil;
 
 import java.io.IOException;

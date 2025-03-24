@@ -107,6 +107,8 @@ async function searchFlights() {
 
 
     try {
+        console.log(url);
+        
         const response = await fetch(url, {
             method: "GET",
             headers: {
@@ -115,6 +117,8 @@ async function searchFlights() {
         });
         if (response.status === 200) {
             const resultSet = await response.json();
+            console.log(response.json());
+            
             currentFlights = resultSet;
             if (resultSet.length > 0) {
                 renderFlights(resultSet);

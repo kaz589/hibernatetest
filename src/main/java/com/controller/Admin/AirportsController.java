@@ -19,7 +19,7 @@ import org.hibernate.SessionFactory;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.model.Airports;
-import com.model.House;
+
 import com.repository.AirportsDao;
 import com.service.AirportsService;
 import com.util.HibernateUtil;
