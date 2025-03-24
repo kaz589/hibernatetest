@@ -11,5 +11,7 @@ public interface IProductsDao {
 	public List<ProductsBean> selectAll();
 	public ProductsBean update(Integer product_id, String product_name);
 	public boolean deleteById(Integer product_id);
+
 	public List<ProductsBean> getByName(String product_name);
+
 }
